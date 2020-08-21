@@ -23,7 +23,7 @@ export const buscarHeroe = (id) =>{
         if(heroe){
             resolve(heroe)
         }else{
-            rejected('No exixste el heroe')
+            rejected('No existe el heroe ' + id)
         }
     });
 }
