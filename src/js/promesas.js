@@ -14,38 +14,53 @@ const heroes = {
 }
 
 
-export const buscarHeroe = (id) =>{
+export const buscarHeroe = (id) => {
 
     const heroe = heroes[id];
 
 
-    return new Promise((resolve,rejected)=>{
-        if(heroe){
+    return new Promise((resolve, rejected) => {
+        if (heroe) {
             resolve(heroe)
-        }else{
+        } else {
             rejected('No existe el heroe ' + id)
         }
     });
 }
 
-const promesaLenta = new Promise((resolve,rejected)=>{
+export const buscarHeroeAsync = async (id) => {
 
-    setTimeout(()=>
-        resolve('Promesa lenta'),3000);
+    const heroe = heroes[id];
+
+
+
+    if (heroe) {
+        return (heroe);
+    } else {
+        throw ('No existe el heroe ' + id);
+        
+    }
+}
+
+
+const promesaLenta = new Promise((resolve, rejected) => {
+
+    setTimeout(() =>
+        resolve('Promesa lenta'), 3000);
 });
 
-const promesaMedia = new Promise((resolve,rejected)=>{
+const promesaMedia = new Promise((resolve, rejected) => {
 
-    setTimeout(()=>
-        resolve('Promesa media'),2000);
+    setTimeout(() =>
+        resolve('Promesa media'), 2000);
 });
 
-const promesaRapida = new Promise((resolve,rejected)=>{
+const promesaRapida = new Promise((resolve, rejected) => {
 
-    setTimeout(()=>
-        resolve('Promesa rapida'),1000);
+    setTimeout(() =>
+        resolve('Promesa rapida'), 1000);
 });
 
 export {
-    promesaLenta,promesaMedia,promesaRapida
+    promesaLenta, promesaMedia, promesaRapida
 }

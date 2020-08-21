@@ -1,4 +1,4 @@
-import {promesaLenta,promesaMedia,promesaRapida} from './js/promesas'
+import {promesaLenta,promesaMedia,promesaRapida,buscarHeroe,buscarHeroeAsync} from './js/promesas'
 
 
 //No hace falta el callback por que se recibe el primer argumento
@@ -7,5 +7,15 @@ import {promesaLenta,promesaMedia,promesaRapida} from './js/promesas'
 // promesaRapida.then(console.log)
 
 
-Promise.race([promesaLenta,promesaMedia,promesaRapida])
+// Promise.race([promesaLenta,promesaMedia,promesaRapida])
+// .then(console.log)
+
+//Async
+
+buscarHeroe('capi2')
 .then(console.log)
+.catch(console.warn);
+
+buscarHeroeAsync('ironman')
+.then(console.log)
+.catch(console.warn);
