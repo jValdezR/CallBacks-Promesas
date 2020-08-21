@@ -1,5 +1,5 @@
 import {promesaLenta,promesaMedia,promesaRapida,buscarHeroe,buscarHeroeAsync} from './js/promesas'
-import { obtenerHeroesArr } from './js/await'
+import { obtenerHeroesArr, obtenerHeroeAwait } from './js/await'
 
 //No hace falta el callback por que se recibe el primer argumento
 // promesaLenta.then(console.log)
@@ -22,4 +22,13 @@ import { obtenerHeroesArr } from './js/await'
 
 
 
-obtenerHeroesArr().then(console.table)
+//obtenerHeroesArr().then(console.table)
+
+console.time('await');
+
+obtenerHeroeAwait('capi')
+    .then((heroes)=>{
+        console.log(heroes);
+
+        console.timeEnd('await')
+    });
