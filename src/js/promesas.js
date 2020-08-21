@@ -21,7 +21,9 @@ export const buscarHeroe = (id) => {
 
     return new Promise((resolve, rejected) => {
         if (heroe) {
-            resolve(heroe)
+            setTimeout(() => resolve(heroe), 1000)
+
+
         } else {
             rejected('No existe el heroe ' + id)
         }
@@ -38,7 +40,7 @@ export const buscarHeroeAsync = async (id) => {
         return (heroe);
     } else {
         throw ('No existe el heroe ' + id);
-        
+
     }
 }
 
